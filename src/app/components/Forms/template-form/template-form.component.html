@@ -1,0 +1,95 @@
+<div class="m-2 p-2 bg-secondary text-white rounded">
+    <h1>Template Driven Forms</h1>
+    <p>ngModel</p>
+</div>
+<div class="container" style="margin: 20px;">
+    <form class="row" #personForm ="ngForm">
+        <div class="col-md-4">
+            <label class="form-label">First Name</label>
+            <input class="form-control" name="firstname" #firstname="ngModel" [(ngModel)]="person.firstname" type="text"
+                required minlength="3">
+            <div class="text-danger">
+                @if((firstname.touched ||firstname.dirty) && firstname.errors?.['required']){
+                <span>First Name is required.</span>
+                }
+                @else if ((firstname.touched ||firstname.dirty) && firstname.errors?.['minlength']) {
+                <span>Min 3 chars required</span>
+                }
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Last Name</label>
+            <input class="form-control" name="lastname" #lastname ="ngModel" [(ngModel)]="person.lastname" type="text" required>
+            <div class="text-danger">
+                @if((lastname.touched ||lastname.dirty) && lastname.errors?.['required']){
+                    <span>Last Name is required.</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Username</label>
+            <div class="input-group">
+                <span class="input-group-text">&#64;</span>
+                <input class="form-control" name="username" #username ="ngModel" [(ngModel)]="person.username" type="text" required minlength="5" maxlength="10">
+            </div>
+            <div class="text-danger">
+                @if((username.touched ||username.dirty) && username.errors?.['required']){
+                    <span>User Name is required.</span>
+                }@else if((username.touched ||username.dirty) && (username.errors?.['minlength'])){
+                    <span>User Name should be between 5 to 10 chars</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">City</label>
+            <input class="form-control" name="city" #city="ngModel" [(ngModel)]="person.city" type="text" required>
+            <div class="text-danger">
+                @if((city.touched ||city.dirty) && city.errors?.['required']){
+                    <span>City is required.</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">State</label>
+            <select class="form-select" name="state" [(ngModel)]="person.state" #state="ngModel" required="">
+                <option selected disabled value="">Choose State</option>
+                @for (item of statesList; track $index) {
+                <option value="{{item}}">{{item}}</option>
+                }
+            </select>
+            <div class="text-danger">
+                @if((state.touched ||state.dirty) && state.errors?.['required']){
+                    <span>State is required.</span>
+                }
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Zip Code</label>
+            <input class="form-control" type="text" name="zipcode" [(ngModel)]="person.zipcode" #zipcode ="ngModel" required maxlength="6">
+            <div class="text-danger">
+                @if((zipcode.touched ||zipcode.dirty) && zipcode.errors?.['required']){
+                    <span>Zipcode is required.</span>
+                }
+            </div>
+        </div>
+        <div class="col-12" style="margin-top: 10px;">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="isTermsAccepted"
+                    [(ngModel)]="person.isTermsAccepted" required #termsAccpeted="ngModel">
+                <label class="form-check-label">Agree Terms and Conditions</label>
+                <div class="text-danger">
+                    @if((termsAccpeted.touched ||termsAccpeted.dirty) && termsAccpeted.errors?.['required']){
+                        <span>Please Agree to terms and Conditions</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-secondary"  type="submit" style="margin: 20px;">Reset form</button>
+            <button class="btn btn-primary" [disabled]="personForm.invalid" type="submit" (click)="Submit()" style="margin: 20px;">Submit form</button>
+        </div>
+    </form>
+
+</div>

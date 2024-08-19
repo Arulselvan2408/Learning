@@ -1,0 +1,59 @@
+<p>for-switch works!</p>
+
+<div class="m-2 p-2 bg-secondary text-white rounded">
+    <h1>Control Flow</h1>
+    <p>For and Switch flows</p>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <h1>Cities</h1> <br>
+        <ol>
+            @for (item of cities; track $index) {
+                <li>{{item}}</li>
+            }
+        </ol>
+    </div>
+
+    <div class="col-6">
+        <select style="width: 200px; height: 40px; border-radius: 5px; ">
+            <option value="" disabled selected hidden>Please Choose City</option>
+            @for (item of cities; track $index) {
+                <option>
+                    {{item}}
+                </option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <table class="table table-bordered">
+        <thead style="font-style: italic; font-weight: bold;">
+            <tr>
+                <td>Name</td>
+                <td>City</td>
+                <td>IsActive</td>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of studentList; track $index) {
+                <tr>
+                    <td>{{item.name}}</td>
+                    <td>{{item.city}}</td>
+                    <td>@switch (item.isActive) {
+                        @case (true) {
+                            <span>Active</span>
+                        }
+                        @case (false) {
+                            <span>Not Active</span>
+                        }
+                        @default {
+                            <span>Invalid Entry</span>
+                        }
+                    }</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

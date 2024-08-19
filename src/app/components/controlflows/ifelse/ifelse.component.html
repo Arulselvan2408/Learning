@@ -1,0 +1,160 @@
+<p>structural-directive works!</p>
+<div class="m-2 p-2 bg-secondary text-white rounded">
+    <h1>Control Flows if else</h1>
+    <p>if and else</p>
+    <button class="btn btn-primary">Navigate To Attribute</button>
+</div>
+
+<div class="row p-3">
+    <div class="col-3">
+        @if (isDiv1Visible) {
+            <div class="bg-danger p-3 text-center">
+                <h4>Div 1</h4>
+            </div>
+        }
+        
+    </div>
+    <div class="col-3">
+        @if(isDiv2Visible){
+            <div class="bg-primary p-3 text-center">
+                <h4>Div 2 if</h4>
+            </div>
+        }
+        @else {
+            <div class="bg-secondary p-3 text-center">
+                <h4>Div 2 else</h4>
+            </div>
+        }
+    </div>
+
+    <div class="col-3">
+        @if (num1>num2) {
+            <div class="bg-secondary p-3 text-center">
+                <h4>num1 is greater than num2</h4>
+            </div>  
+        }
+        @else if(num2>num1){
+            <div class="bg-secondary p-3 text-center">
+                <h4>num2 is greater than num1</h4>
+            </div>  
+        }
+        @else{
+            <div class="bg-secondary p-3 text-center">
+                <h4>Div 3</h4>
+            </div>  
+        }
+
+        
+
+        <p>{{num1>num2}}  num1 = {{num1}} and num2 ={{num2}}</p>
+        <p>{{num2>num1}} num1 = {{num1}} and num2 ={{num2}}</p>
+
+    </div>
+
+    <div class="col-3">
+    <div *ngIf="num1 === num2" class="bg-secondary p-3 text-center">
+        <h4>Div 3</h4>
+    </div>
+    <div *ngIf="num1 > num2" class="bg-secondary p-3 text-center">
+        <h4>num1 is greater than num2</h4>
+    </div>
+    <div *ngIf="num2 > num1" class="bg-secondary p-3 text-center">
+        <h4>num2 is greater than num1</h4>
+    </div>
+
+    <p>{{ num1 > num2 }} num1 = {{ num1 }} and num2 = {{ num2 }}</p>
+    <p>{{ num2 > num1 }} num1 = {{ num1 }} and num2 = {{ num2 }}</p>
+</div>
+
+
+    <div class="col-3">
+        <div class="bg-success p-3 text-center">
+            <h4>Div 4</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row p-3 ">
+    <div class="col-3 text-center">
+        <button class="btn btn-success m-3" (click)="showDiv1()">Show</button>
+        @if(isDiv1Visible){
+            <button class="btn btn-danger m-3"(click)="hideDiv1()">Hide</button>
+        }
+    </div>
+
+    <div class="col-3 text-center">
+        <button class="btn btn-success m-3" (click)="toggleDiv2()">Toggle</button>
+    </div>
+
+    <div class="col-3 text-center">
+         <div class="row">
+            <div class="col-6">
+                <input type="text" [(ngModel)]="num1" placeholder="Num1"/>
+            </div>
+            <div class="col-6">
+                <input type="text" [(ngModel)]="num2" placeholder="Num2"/>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-3 text-center">
+        <div class="col-6">
+            <input type="checkbox">
+        </div>
+        <div class="col-6">
+            <select>
+                <option>TamilNadu</option>
+                <option>Kerala</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col-3">
+        <ul>
+            <li *ngFor =" let city of cities">{{city}}</li>
+        </ul>
+    </div>
+    <div class="col-3">
+        <div *ngFor =" let city of cities">{{city}}</div>
+    </div>
+    <div class="col-3">
+        <select>
+            <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
+        </select>
+    </div>
+
+    <div class="col-3">
+        <select>
+            <option *ngFor="let student of studentList" value="{{student.name}}">{{student.name}}</option>
+        </select>
+    </div>
+
+</div>
+
+<div class="row">
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>S.No</td>
+                    <td>Name</td>
+                    <td>City</td>
+                    <td>isActive</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let stu of studentList; let srNo = index">
+                    <td>{{srNo+1}}</td>
+                    <td>{{stu.name}}</td>
+                    <td>{{stu.city}}</td>
+                    <td><span *ngIf ="stu.isActive">Active</span>
+                        <span *ngIf="!stu.isActive">Not Active</span></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div> -->

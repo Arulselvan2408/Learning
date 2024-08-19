@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item" style="margin-top:12px;">
+            <a class="nav-link active" routerLink="employee-list">Employee List</a>
+          </li>
+          <li class="nav-item" style="margin-top:12px;">
+            <a class="nav-link" routerLink ="add-employee">Add Employee</a>
+          </li>
+          <li class="nav-item" style="margin-top:12px;">
+            <a class="nav-link" routerLink="data-binding">Data Binding</a>
+          </li>
+          <li class="nav-item dropdown" style="margin-top:12px;" >
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Directive</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="structural-dir">Structural Directive</a></li>
+              <li><a class="dropdown-item" routerLink="attribute-dir">Attribute Directive</a></li> 
+            </ul>
+          </li>
+          <li class="nav-item dropdown" style="margin-top:12px;" >
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Control Flows</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="ifelse">ifelse</a></li>
+              <li><a class="dropdown-item" routerLink="for-switch">for-switch</a></li> 
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown" style="margin-top:12px;" >
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Forms</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="template-form">TemplateForms</a></li>
+              <li><a class="dropdown-item" routerLink="for-switch">for-switch</a></li> 
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="text" placeholder="Search">
+          <button class="btn btn-primary" type="button">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
